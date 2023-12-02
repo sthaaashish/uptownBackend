@@ -3,7 +3,7 @@ const { default: mongoose } = require("mongoose");
 const app = express();
 const blogRoute = require("./Routes/blogRoute");
 const propertyRoute = require("./Routes/propertyRoute");
-const reviewRoute = require("./Routes/reviewRoute");
+const contactRoute = require("./Routes/contactRoute");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const authRoute = require("./Routes/authRoute");
@@ -33,7 +33,7 @@ app.use(
   })
 );
 app.use(authRoute)
-app.use(reviewRoute);
+app.use(contactRoute);
 app.use(propertyRoute);
 app.use(blogRoute);
 
