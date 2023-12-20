@@ -15,7 +15,7 @@ const propertySchema = mongoose.Schema(
         required: true,
       },
   
-      image: {
+      property_image: {
         type: String,
         required: true,
       },
