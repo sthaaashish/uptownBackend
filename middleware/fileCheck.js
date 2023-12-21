@@ -1,9 +1,45 @@
 const path = require("path");
-const fs = require("fs").promises; // Using fs.promises for async file operations
+const fs = require("fs").promises; 
+
+// module.exports.fileCheck = async (req, res, next) => {
+//   try {
+//     if (req.file?.property_image) {
+//       const file = req.file.property_image;
+//       const validExts = [".jpg", ".jpeg", ".png"];
+
+//       if (validExts.includes(path.extname(file.name))) {
+//         const uploadPath = path.join(__dirname, "upload", file.name);
+
+//         await fs.rename(file.tempFilePath, uploadPath);
+
+//         req.property_image = `/upload/${file.name}`;
+//         return next();
+//       } else {
+//         return res.status(400).json({
+//           status: "error",
+//           message: "Please provide a valid image",
+//         });
+//       }
+//     } else {
+//       return res.status(400).json({
+//         status: "error",
+//         message: "Please provide an image",
+//       });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({
+//       status: "error",
+//       message: "Internal Server Error",
+//     });
+//   }
+// };
+
+
 
 module.exports.fileCheck = (req, res, next) => {
-  if (req.files?.property_image) {
-    const file = req.files.property_image;
+  if (req.file?.property_image) {
+    const file = req.file.property_image;
     const validExts = [".jpg", ".jpeg", ".png"];
     
     if (validExts.includes(path.extname(file.name))) {
