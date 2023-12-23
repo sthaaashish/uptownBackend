@@ -29,9 +29,13 @@ const blogsSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    image: {
+    property_image: {
       type: String,
       required: true,
+    },
+    category:{
+      type:String,
+      required:true
     },
 
     comments: [commentSchema],

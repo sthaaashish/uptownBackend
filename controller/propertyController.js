@@ -1,6 +1,7 @@
 const Property = require("../model/Property");
 const fs = require("fs");
 
+
 module.exports.getAllProperty = async (req, res) => {
   try {
     const properties = await Property.find({});
@@ -81,20 +82,20 @@ module.exports.deleteProduct = async (req, res) => {
   }
 };
 
-module.exports.updateProduct = async (req, res) => {
+module.exports.updateProperty = async (req, res) => {
   const {
     property_address,
-      property_bathrooms,
-      property_beds,
-      property_floorArea,
-      property_detail,
-      property_name,
-      property_price,
+    property_bathrooms,
+    property_beds,
+    property_floorArea,
+    property_detail,
+    property_name,
+    property_price,
   } = req.body;
 
   try {
     if (req.property_image) {
-      await Product.findByIdAndUpdate(
+      await Property.findOneAndUpdate(
         { _id: req.params.id },
         {
           property_address,
@@ -104,25 +105,25 @@ module.exports.updateProduct = async (req, res) => {
           property_detail,
           property_name,
           property_price,
-          property_image: req.property_image,
+          property_image: req.property_image || null,
         }
       );
     } else {
-      await Product.findByIdAndUpdate(
+      await Property.findOneAndUpdate(
         { _id: req.params.id },
         {
           property_address,
-      property_bathrooms,
-      property_beds,
-      property_floorArea,
-      property_detail,
-      property_name,
-      property_price,
+          property_bathrooms,
+          property_beds,
+          property_floorArea,
+          property_detail,
+          property_name,
+          property_price,
         }
       );
     }
     return res.status(200).json({
-      status: "sucess",
+      status: "success",
       message: "successfully updated",
     });
   } catch (err) {
@@ -132,3 +133,9 @@ module.exports.updateProduct = async (req, res) => {
     });
   }
 };
+
+
+
+
+
+

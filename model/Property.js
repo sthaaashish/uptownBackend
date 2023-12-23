@@ -17,7 +17,7 @@ const propertySchema = mongoose.Schema(
   
       property_image: {
         type: String,
-        // required: true,
+        required: true,
       },
       property_address: {
         type: String,

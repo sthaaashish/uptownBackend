@@ -4,7 +4,6 @@ const router = express.Router();
 const blogsController=require("../controller/blogsController")
 const fileCheck=require("../middleware/fileCheck")
 const checkUser=require("../middleware/authCheck")
-const contactController=require("../controller/contactController")
 
 
 router.get('/getBlogs', blogsController.getAllBlogs  );

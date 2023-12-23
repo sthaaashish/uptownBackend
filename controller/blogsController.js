@@ -24,13 +24,14 @@ module.exports.getBlogsById = async (req, res) => {
   }
 };
 module.exports.createBlogs = async (req, res, next) => {
-  const { title, discription } = req.body;
+  const { title, discription,category } = req.body;
 
   try {
     await Blogs.create({
       title,
       discription,
-      image: req.image,
+      category,
+      property_image: req.property_image,
     });
     return res.status(200).json({
       status: "sucess",
