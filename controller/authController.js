@@ -58,7 +58,6 @@ module.exports.userRegister = async (req, res) => {
                 email,
                 password:hassPass,
                 fullname,
-                profession
             })
             return res.status(201).json({
                 status:"success",
